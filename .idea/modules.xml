@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CalculatorProj/CalculatorProj.iml" filepath="$PROJECT_DIR$/CalculatorProj/CalculatorProj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FinalProjectPrac/FinalProjectPrac.iml" filepath="$PROJECT_DIR$/FinalProjectPrac/FinalProjectPrac.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GettingIntoJava/GettingIntoJava.iml" filepath="$PROJECT_DIR$/GettingIntoJava/GettingIntoJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaPractice.iml" filepath="$PROJECT_DIR$/JavaPractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Login_GUI/Login_GUI.iml" filepath="$PROJECT_DIR$/Login_GUI/Login_GUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MoreOnJFramePr.6/MoreOnJFramePr.6.iml" filepath="$PROJECT_DIR$/MoreOnJFramePr.6/MoreOnJFramePr.6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OnMyOwnProj/OnMyOwnProj.iml" filepath="$PROJECT_DIR$/OnMyOwnProj/OnMyOwnProj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PracticeTips/PracticeTips.iml" filepath="$PROJECT_DIR$/PracticeTips/PracticeTips.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project4/Project4.iml" filepath="$PROJECT_DIR$/Project4/Project4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project5/Project5.iml" filepath="$PROJECT_DIR$/Project5/Project5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projects/Projects.iml" filepath="$PROJECT_DIR$/Projects/Projects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projects2/Projects2.iml" filepath="$PROJECT_DIR$/Projects2/Projects2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projects3/Projects3.iml" filepath="$PROJECT_DIR$/Projects3/Projects3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GettingIntoJava/adadad.iml" filepath="$PROJECT_DIR$/GettingIntoJava/adadad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GettingIntoJava/asda.iml" filepath="$PROJECT_DIR$/GettingIntoJava/asda.iml" />
+    </modules>
+  </component>
+</project>
