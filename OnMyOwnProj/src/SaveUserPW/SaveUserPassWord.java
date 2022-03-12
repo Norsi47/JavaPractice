@@ -40,7 +40,7 @@ public class SaveUserPassWord implements ActionListener {
         userLabel = new JLabel("User Id: ");
         //setting size of space between "User Id:"  and text field box
        //also position inside the who box
-        userLabel.setBounds(5, 10, 90, 25);
+        userLabel.setBounds(10, 10, 90, 25);
         //will make sure it shows
         panel.add(userLabel);
 
@@ -49,6 +49,26 @@ public class SaveUserPassWord implements ActionListener {
         //x and y for position, width height for length of box
         userTextField.setBounds(100, 20, 155, 20);
         panel.add(userTextField);
+
+        //naming password outside
+        passwordLabel = new JLabel("Password: ");
+        //space between and position
+        passwordLabel.setBounds(10, 50, 90, 25);
+        panel.add(passwordLabel);
+
+        //text box for inside
+        passwordTextField = new JPasswordField();
+        passwordTextField.setBounds(100, 50, 165, 20);
+        panel.add(passwordTextField);
+
+        //adding button
+        button = new JButton("LOGIN");
+        button.setBounds(10, 80, 80, 25);
+        //action listener needed to make button work
+        //reading from the contructor class name
+        //where we implemented action listener
+        button.addActionListener(new SaveUserPassWord());
+        panel.add(button);
 
 
 
