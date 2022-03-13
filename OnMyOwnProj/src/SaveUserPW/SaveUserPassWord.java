@@ -3,6 +3,8 @@ package SaveUserPW;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 public class SaveUserPassWord implements ActionListener {
 
@@ -19,6 +21,31 @@ public class SaveUserPassWord implements ActionListener {
     //it will show this if successful
     private static JLabel success;
 
+    private FileWriter fileWriter;
+    private BufferedWriter bufferedWriter;
+
+
+    //saving passWord Files
+
+
+    public void savingUserInfo() {
+        try {
+            //naming the file
+            fileWriter = new FileWriter("SavedUserIDandPW.txt");
+
+            //not too sure what this does
+            bufferedWriter = new BufferedWriter(fileWriter);
+//
+//            fileWriter.write(String.valueOf(userTextField));
+//            fileWriter.close();
+
+
+        } catch (Exception e) {
+            System.out.println("Error!!!");
+
+        }
+    }
+
 
     public static void main(String[] args) {
 
@@ -28,7 +55,7 @@ public class SaveUserPassWord implements ActionListener {
         JPanel panel = new JPanel();
 
         //initiating textbox name, size and so on
-        frame.setSize(400,300);
+        frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         frame.add(panel);
@@ -39,8 +66,8 @@ public class SaveUserPassWord implements ActionListener {
         //naming of outside box
         userLabel = new JLabel("User Id: ");
         //setting size of space between "User Id:"  and text field box
-       //also position inside the who box
-        userLabel.setBounds(10, 10, 90, 25);
+        //also position inside the who box
+        userLabel.setBounds(10, 20, 90, 25);
         //will make sure it shows
         panel.add(userLabel);
 
@@ -63,15 +90,17 @@ public class SaveUserPassWord implements ActionListener {
 
         //adding button
         button = new JButton("LOGIN");
-        button.setBounds(10, 80, 80, 25);
+        button.setBounds(200, 80, 80, 25);
         //action listener needed to make button work
         //reading from the contructor class name
         //where we implemented action listener
         button.addActionListener(new SaveUserPassWord());
         panel.add(button);
 
-
-
+        //success panel
+        success = new JLabel("");
+        success.setBounds(200, 110, 200, 30);
+        panel.add(success);
 
 
         //need to put this at the end of line of code
@@ -79,8 +108,22 @@ public class SaveUserPassWord implements ActionListener {
 
     }
 
+    //will get buttons to work when clicked
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        //this means get text from user id text field(the box)
+        String user = userTextField.getText();
+
+        //same logic for the button text field, similar to userTextField
+        String passWord = passwordTextField.getText();
+
+        if (user.equals("Norsi") && passWord.equals("Spiderman45")) {
+            success.setText("Login Successful");
+        } else {
+            success.setText("Error! Please try again");
+        }
+
 
     }
 }
