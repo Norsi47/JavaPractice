@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
 
 public class SaveUserPassWord implements ActionListener {
 
@@ -21,33 +23,11 @@ public class SaveUserPassWord implements ActionListener {
     //it will show this if successful
     private static JLabel success;
 
-    private FileWriter fileWriter;
     private BufferedWriter bufferedWriter;
 
 
-    //saving passWord Files
+    public static void main(String[] args) throws IOException {
 
-
-    public void savingUserInfo() {
-        try {
-            //naming the file
-            fileWriter = new FileWriter("SavedUserIDandPW.txt");
-
-            //not too sure what this does
-            bufferedWriter = new BufferedWriter(fileWriter);
-//
-//            fileWriter.write(String.valueOf(userTextField));
-//            fileWriter.close();
-
-
-        } catch (Exception e) {
-            System.out.println("Error!!!");
-
-        }
-    }
-
-
-    public static void main(String[] args) {
 
         //start with this for text box if not extending JFrame
         //Jframe means outside and Jpanel inside
@@ -122,6 +102,18 @@ public class SaveUserPassWord implements ActionListener {
             success.setText("Login Successful");
         } else {
             success.setText("Error! Please try again");
+        }
+
+        // saving file
+        try {
+            bufferedWriter = new BufferedWriter(new FileWriter("SavedUserInfoLogIn"));
+            bufferedWriter.write("Users ID: " + userTextField.getText());
+            bufferedWriter.newLine();
+            bufferedWriter.write("Users PassWord: " + Arrays.toString(passwordTextField.getPassword()));
+            bufferedWriter.close();
+        } catch (Exception exception) {
+            System.out.println("Error");
+
         }
 
 

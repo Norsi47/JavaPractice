@@ -34,7 +34,7 @@ public class SavingUserInfoClass {
 
         while(userInput.hasNext()) {
             String lines = userInput.nextLine();
-            System.out.printf("%s %s\n", lines);
+            System.out.printf("%s \n", lines);
 
 
 
