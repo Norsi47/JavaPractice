@@ -3,10 +3,14 @@ package SaveUserPW;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class SaveUserPassWord implements ActionListener {
 
@@ -86,30 +90,35 @@ public class SaveUserPassWord implements ActionListener {
         //need to put this at the end of line of code
         frame.setVisible(true);
 
+        SaveUserPassWord saveUserPassWord = new SaveUserPassWord();
+        saveUserPassWord.readingSavedFile();
+
     }
 
     //will get buttons to work when clicked
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        //this means get text from user id text field(the box)
-        String user = userTextField.getText();
+//        //this means get text from user id text field(the box)
+//        String user = userTextField.getText();
+//
+//        //same logic for the button text field, similar to userTextField
+//        String passWord = passwordTextField.getText();
+//
+//        if (user.equals("Norsi") && passWord.equals("Spiderman45")) {
+//            success.setText("Login Successful");
+//        } else {
+//            success.setText("Error! Please try again");
+//        }
 
-        //same logic for the button text field, similar to userTextField
-        String passWord = passwordTextField.getText();
 
-        if (user.equals("Norsi") && passWord.equals("Spiderman45")) {
-            success.setText("Login Successful");
-        } else {
-            success.setText("Error! Please try again");
-        }
 
         // saving file
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter("SavedUserInfoLogIn"));
+            bufferedWriter = new BufferedWriter(new FileWriter("SavedUserInfoLogIn.txt"));
             bufferedWriter.write("Users ID: " + userTextField.getText());
             bufferedWriter.newLine();
-            bufferedWriter.write("Users PassWord: " + Arrays.toString(passwordTextField.getPassword()));
+            bufferedWriter.write("Users PassWord: " + passwordTextField.getText());
             bufferedWriter.close();
         } catch (Exception exception) {
             System.out.println("Error");
@@ -118,4 +127,18 @@ public class SaveUserPassWord implements ActionListener {
 
 
     }
+
+
+
+
+    //saving user input
+    public void readingSavedFile() throws FileNotFoundException {
+        FileReader fileReader = new FileReader(String.valueOf(bufferedWriter));
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        String s = null;
+
+    }
+
+
 }
