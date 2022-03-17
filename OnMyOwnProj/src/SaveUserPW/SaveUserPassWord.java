@@ -90,26 +90,11 @@ public class SaveUserPassWord implements ActionListener {
         //need to put this at the end of line of code
         frame.setVisible(true);
 
-        SaveUserPassWord saveUserPassWord = new SaveUserPassWord();
-        saveUserPassWord.readingSavedFile();
-
     }
 
     //will get buttons to work when clicked
     @Override
     public void actionPerformed(ActionEvent e) {
-
-//        //this means get text from user id text field(the box)
-//        String user = userTextField.getText();
-//
-//        //same logic for the button text field, similar to userTextField
-//        String passWord = passwordTextField.getText();
-//
-//        if (user.equals("Norsi") && passWord.equals("Spiderman45")) {
-//            success.setText("Login Successful");
-//        } else {
-//            success.setText("Error! Please try again");
-//        }
 
 
 
@@ -119,26 +104,35 @@ public class SaveUserPassWord implements ActionListener {
             bufferedWriter.write("Users ID: " + userTextField.getText());
             bufferedWriter.newLine();
             bufferedWriter.write("Users PassWord: " + passwordTextField.getText());
+            bufferedWriter.newLine();
+
+            bufferedWriter.append("User Info 2: ").append(userTextField.getText());
+            bufferedWriter.newLine();
+            bufferedWriter.append("User Info 2:").append(passwordTextField.getText());
+            bufferedWriter.flush();
+
             bufferedWriter.close();
         } catch (Exception exception) {
             System.out.println("Error");
 
         }
 
+//        //this means get text from user id text field(the box)
+        String user = userTextField.getText();
+//
+//        //same logic for the button text field, similar to userTextField
+        String passWord = passwordTextField.getText();
+//
+        if (user.equals("Norsi") && passWord.equals("Spiderman45")) {
+            success.setText("Login Successful");
+        } else {
+            success.setText("Error! Please try again");
+        }
+
 
     }
 
 
-
-
-    //saving user input
-    public void readingSavedFile() throws FileNotFoundException {
-        FileReader fileReader = new FileReader(String.valueOf(bufferedWriter));
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-        String s = null;
-
-    }
 
 
 }
