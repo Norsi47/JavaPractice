@@ -1,11 +1,12 @@
 package ShoppingButtons;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ShoppingButtonsService {
+
+
     //outside frame
     JFrame frame;
     //inside
@@ -21,7 +22,7 @@ public class ShoppingButtonsService {
 
     //for fruit button pics
     JButton[] fruitButtonPics = new JButton[3];
-    JButton fruitButtons;
+    JButton tomatoButton;
 
     //for calculations
     double num1 = 0, num2 = 0, result = 0;
@@ -33,6 +34,8 @@ public class ShoppingButtonsService {
     Font myFont = new Font("TimesRoman", Font.BOLD, 40);
 
     public ShoppingButtonsService() {
+
+
         //the name of box
         frame = new JFrame("ShopButtonBox");
         //to close box when x is pressed
@@ -47,31 +50,32 @@ public class ShoppingButtonsService {
         displayBox.setEditable(false);
 
         panel = new JPanel();
-        panel.setBounds(50, 100, 300, 300);
+        panel.setBounds(200, 110, 400, 300);
         panel.setLayout(new GridLayout(4, 4, 10, 10));
         panel.setBackground(Color.CYAN);
 
-        //adding images to button
-        List<JButton> buttonsList = new ArrayList<JButton>();
-        String[] paths = {"apple.png", "banana.jpg", "Tomato.jpg" };
-        for(int i = 0; i < 3; i++) {
-            ImageIcon imageIcon = new ImageIcon(paths[i]);
+        tomatoButton = new JButton();
+//        try {
+//            Image tomatoImg = ImageIO.read(getClass().getResource(
+//                    "Tomato.jpg"));
+//
+//            tomatoButton.setIcon(new ImageIcon(tomatoImg));
+//
+//        } catch (Exception e) {
+//            System.out.println(e);
+//
+//        }
 
-            fruitButtons = new JButton(imageIcon);
-            buttonsList.add(fruitButtons);
-            panel.add(fruitButtons);
+//        ImageIcon imageIcon = new ImageIcon("Tomato.jpg");
+//        //scaling image to fit
+//        Image img = imageIcon.getImage();
+//        Image imgScale = img.getScaledInstance(tomatoButton.getWidth(),
+//                tomatoButton.getHeight(), Image.SCALE_SMOOTH);
+//        ImageIcon scaledIcon = new ImageIcon(imgScale);
+//        tomatoButton.setIcon(scaledIcon);
 
 
-
-        }
-
-
-
-
-
-
-
-
+        panel.add(tomatoButton);
 
         frame.add(panel);
         frame.add(displayBox);
@@ -91,5 +95,5 @@ public class ShoppingButtonsService {
 //TODO:Create Buttons with pictures of food items
 //TODO: Make sure all buttons function properly
 /*
-* TODO:save selected files into a txt file
-*  show seleced items in files on console or on jpanel output*/
+ * TODO:save selected files into a txt file
+ *  show seleced items in files on console or on jpanel output*/
