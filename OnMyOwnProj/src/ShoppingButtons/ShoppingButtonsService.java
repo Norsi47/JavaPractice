@@ -55,16 +55,15 @@ public class ShoppingButtonsService {
         panel.setBackground(Color.CYAN);
 
         tomatoButton = new JButton();
-//        try {
-//            Image tomatoImg = ImageIO.read(getClass().getResource(
-//                    "Tomato.jpg"));
-//
-//            tomatoButton.setIcon(new ImageIcon(tomatoImg));
-//
-//        } catch (Exception e) {
-//            System.out.println(e);
-//
-//        }
+        try {
+            Image tomatoImg = ImageIO.read(getClass().getResource(
+                    "Tomato.jpg"));
+            tomatoButton.setIcon(new ImageIcon(tomatoImg));
+
+        } catch (Exception e) {
+            System.out.println(e);
+
+        }
 
 //        ImageIcon imageIcon = new ImageIcon("Tomato.jpg");
 //        //scaling image to fit
