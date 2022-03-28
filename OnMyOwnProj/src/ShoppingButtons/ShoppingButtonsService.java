@@ -16,9 +16,13 @@ public class ShoppingButtonsService {
     JTextField displayBox;
 
     /*Array for dif buttons
-    need to set function for reach button*/
+    need to set function for reach button
+    the numbers in [] is how many buttons there will be
+     */
+    JButton[] numberButtons = new JButton[10];
 
-    JButton[] functionButtons = new JButton[9];
+    JButton[] functionButtons = new JButton[5];
+    JButton addButton, subButton, delButton, multiButton, clrButton;
 
     //for fruit button pics
     JButton[] fruitButtonPics = new JButton[3];
@@ -64,17 +68,24 @@ public class ShoppingButtonsService {
             System.out.println(e);
 
         }
-
-//        ImageIcon imageIcon = new ImageIcon("Tomato.jpg");
-//        //scaling image to fit
-//        Image img = imageIcon.getImage();
-//        Image imgScale = img.getScaledInstance(tomatoButton.getWidth(),
-//                tomatoButton.getHeight(), Image.SCALE_SMOOTH);
-//        ImageIcon scaledIcon = new ImageIcon(imgScale);
-//        tomatoButton.setIcon(scaledIcon);
+        //buttons display
+        addButton = new JButton("+");
+        subButton = new JButton("Sub(-)");
+        delButton = new JButton("Del");
+        multiButton = new JButton("Multi(*)");
+        clrButton = new JButton("Clr");
 
 
+        //adds the buttons into the app
         panel.add(tomatoButton);
+        panel.add(addButton);
+        panel.add(subButton);
+        panel.add(delButton);
+        panel.add(multiButton);
+        panel.add(clrButton);
+
+        //adding numbers into app
+        panel.add(numberButtons[1]);
 
         frame.add(panel);
         frame.add(displayBox);
