@@ -3,8 +3,10 @@ package ShoppingButtons;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ShoppingButtonsService {
+public class ShoppingButtonsService implements ActionListener {
 
 
     //outside frame
@@ -35,7 +37,7 @@ public class ShoppingButtonsService {
     char symbolsOperator;
 
     //for font
-    Font myFont = new Font("TimesRoman", Font.BOLD, 40);
+    Font myFont = new Font("TimesRoman", Font.BOLD, 20);
 
     public ShoppingButtonsService() {
 
@@ -75,10 +77,17 @@ public class ShoppingButtonsService {
         multiButton = new JButton("Multi(*)");
         clrButton = new JButton("Clr");
 
+        for (int i = 0; i < 10; i++) {
+            numberButtons[i] = new JButton(String.valueOf(i));
+            numberButtons[i].setFont(myFont);
+            numberButtons[i].addActionListener(this);
+            numberButtons[i].setFocusable(false);
+        }
+
 
         //adds the buttons into the app
         panel.add(tomatoButton);
-        panel.add(addButton);
+
         panel.add(subButton);
         panel.add(delButton);
         panel.add(multiButton);
@@ -86,6 +95,10 @@ public class ShoppingButtonsService {
 
         //adding numbers into app
         panel.add(numberButtons[1]);
+        panel.add(numberButtons[2]);
+        panel.add(numberButtons[3]);
+        panel.add(addButton);
+
 
         frame.add(panel);
         frame.add(displayBox);
@@ -94,12 +107,25 @@ public class ShoppingButtonsService {
 
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        //will make number buttons show in display box when pressed
+        for (int i = 0; i < 10; i++) {
+            if (e.getSource() == numberButtons[i]) {
+                displayBox.setText(displayBox.getText().concat(String.valueOf(i)));
+            }
+
+
+        }
+    }
+
     public static void main(String[] args) {
         ShoppingButtonsService shoppingButtonsService = new ShoppingButtonsService();
     }
-
-
 }
+
+
+
 
 //can use "fix me", no space to remmind to fix
 //TODO:Create Buttons with pictures of food items
