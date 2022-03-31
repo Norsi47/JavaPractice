@@ -46,7 +46,7 @@ public class ShoppingButtonsService implements ActionListener {
         frame = new JFrame("ShopButtonBox");
         //to close box when x is pressed
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 500);
+        frame.setSize(10020, 800);
         frame.setLayout(null);
 
         displayBox = new JTextField();
@@ -77,6 +77,17 @@ public class ShoppingButtonsService implements ActionListener {
         multiButton = new JButton("Multi(*)");
         clrButton = new JButton("Clr");
 
+        //the function keys
+        functionButtons[0] = clrButton;
+        functionButtons[1] = multiButton;
+        functionButtons[2] = delButton;
+        functionButtons[3] = addButton;
+        functionButtons[4] = subButton;
+
+        //to make buttons show outside panel and inside jframe
+        clrButton.setBounds(250, 430, 100, 50);
+        delButton.setBounds(150, 430, 100, 50);
+
         for (int i = 0; i < 10; i++) {
             numberButtons[i] = new JButton(String.valueOf(i));
             numberButtons[i].setFont(myFont);
@@ -84,24 +95,38 @@ public class ShoppingButtonsService implements ActionListener {
             numberButtons[i].setFocusable(false);
         }
 
+        //for function buttons to show
+        for (int i = 0; i <5; i++) {
+            //makes all function buttons in array work
+            functionButtons[i].addActionListener(this);
+            //sets font for all keys
+            functionButtons[i].setFont(myFont);
+
+        }
+
 
         //adds the buttons into the app
         panel.add(tomatoButton);
 
+        //adds it into panel
         panel.add(subButton);
         panel.add(delButton);
         panel.add(multiButton);
-        panel.add(clrButton);
+        panel.add(addButton);
+
 
         //adding numbers into app
         panel.add(numberButtons[1]);
         panel.add(numberButtons[2]);
         panel.add(numberButtons[3]);
-        panel.add(addButton);
 
 
+
+
+        frame.add(clrButton);
         frame.add(panel);
         frame.add(displayBox);
+
         //has to be at the bottom
         frame.setVisible(true);
 
@@ -113,6 +138,12 @@ public class ShoppingButtonsService implements ActionListener {
         for (int i = 0; i < 10; i++) {
             if (e.getSource() == numberButtons[i]) {
                 displayBox.setText(displayBox.getText().concat(String.valueOf(i)));
+            }
+
+            //when clr button is pressed make displaybox empty
+            if (e.getSource() == clrButton) {
+                displayBox.setText("");
+
             }
 
 
