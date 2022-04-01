@@ -139,6 +139,7 @@ public class ShoppingButtonsService implements ActionListener {
             if (e.getSource() == numberButtons[i]) {
                 displayBox.setText(displayBox.getText().concat(String.valueOf(i)));
             }
+        }
 
             //when clr button is pressed make displaybox empty
             if (e.getSource() == clrButton) {
@@ -146,8 +147,18 @@ public class ShoppingButtonsService implements ActionListener {
 
             }
 
+            if(e.getSource() == delButton) {
+                String string = displayBox.getText();
+                displayBox.setText("");
 
-        }
+                for (int i = 0; i<string.length()-1; i++) {
+                    displayBox.setText(displayBox.getText() + string.charAt(i));
+                }
+            }
+
+
+
+
     }
 
     public static void main(String[] args) {
