@@ -24,7 +24,8 @@ public class ShoppingButtonsService implements ActionListener {
     JButton[] numberButtons = new JButton[10];
 
     JButton[] functionButtons = new JButton[5];
-    JButton addButton, subButton, delButton, multiButton, clrButton;
+    JButton addButton, subButton, delButton, multiButton,
+            clrButton, equalButton;
 
     //for fruit button pics
     JButton[] fruitButtonPics = new JButton[3];
@@ -76,6 +77,7 @@ public class ShoppingButtonsService implements ActionListener {
         delButton = new JButton("Del");
         multiButton = new JButton("Multi(*)");
         clrButton = new JButton("Clr");
+        equalButton = new JButton("=");
 
         //the function keys
         functionButtons[0] = clrButton;
@@ -126,6 +128,7 @@ public class ShoppingButtonsService implements ActionListener {
         panel.add(numberButtons[8]);
         panel.add(numberButtons[9]);
         panel.add(numberButtons[0]);
+        panel.add(equalButton);
 
 
 
@@ -146,6 +149,12 @@ public class ShoppingButtonsService implements ActionListener {
             if (e.getSource() == numberButtons[i]) {
                 displayBox.setText(displayBox.getText().concat(String.valueOf(i)));
             }
+        }
+
+        if (e.getSource() == subButton) {
+            num1 = Double.parseDouble(displayBox.getText());
+            symbolsOperator = '-';
+            displayBox.setText("");
         }
 
             //when clr button is pressed make displaybox empty
