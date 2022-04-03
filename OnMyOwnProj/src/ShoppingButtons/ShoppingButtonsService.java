@@ -62,6 +62,7 @@ public class ShoppingButtonsService implements ActionListener {
         panel.setBackground(Color.CYAN);
 
         tomatoButton = new JButton();
+
         try {
             Image tomatoImg = ImageIO.read(getClass().getResource(
                     "Tomato.jpg"));
@@ -98,7 +99,7 @@ public class ShoppingButtonsService implements ActionListener {
         }
 
         //for function buttons to show
-        for (int i = 0; i <5; i++) {
+        for (int i = 0; i < 5; i++) {
             //makes all function buttons in array work
             functionButtons[i].addActionListener(this);
             //sets font for all keys
@@ -131,8 +132,6 @@ public class ShoppingButtonsService implements ActionListener {
         panel.add(equalButton);
 
 
-
-
         frame.add(clrButton);
         frame.add(panel);
         frame.add(displayBox);
@@ -157,22 +156,20 @@ public class ShoppingButtonsService implements ActionListener {
             displayBox.setText("");
         }
 
-            //when clr button is pressed make displaybox empty
-            if (e.getSource() == clrButton) {
-                displayBox.setText("");
+        //when clr button is pressed make displaybox empty
+        if (e.getSource() == clrButton) {
+            displayBox.setText("");
 
+        }
+
+        if (e.getSource() == delButton) {
+            String string = displayBox.getText();
+            displayBox.setText("");
+
+            for (int i = 0; i < string.length() - 1; i++) {
+                displayBox.setText(displayBox.getText() + string.charAt(i));
             }
-
-            if(e.getSource() == delButton) {
-                String string = displayBox.getText();
-                displayBox.setText("");
-
-                for (int i = 0; i<string.length()-1; i++) {
-                    displayBox.setText(displayBox.getText() + string.charAt(i));
-                }
-            }
-
-
+        }
 
 
     }
@@ -181,8 +178,6 @@ public class ShoppingButtonsService implements ActionListener {
         ShoppingButtonsService shoppingButtonsService = new ShoppingButtonsService();
     }
 }
-
-
 
 
 //can use "fix me", no space to remmind to fix
