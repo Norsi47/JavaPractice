@@ -29,7 +29,7 @@ public class ShoppingButtonsService implements ActionListener {
 
     //for fruit button pics
     JButton[] fruitButtonPics = new JButton[3];
-    JButton tomatoButton;
+    JButton tomatoButton, bananaButton;
 
     //for calculations
     double num1 = 0, num2 = 0, result = 0;
@@ -47,22 +47,22 @@ public class ShoppingButtonsService implements ActionListener {
         frame = new JFrame("ShopButtonBox");
         //to close box when x is pressed
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(10020, 800);
+        frame.setSize(1020, 800);
         frame.setLayout(null);
 
         displayBox = new JTextField();
         //for size and display
-        displayBox.setBounds(200, 50, 400, 60);
+        displayBox.setBounds(200, 50, 500, 60);
         displayBox.setFont(myFont);
         displayBox.setEditable(false);
 
         panel = new JPanel();
-        panel.setBounds(200, 110, 400, 300);
+        panel.setBounds(200, 110, 500, 300);
         panel.setLayout(new GridLayout(4, 4, 10, 10));
         panel.setBackground(Color.CYAN);
 
+        //picture for tomatoe
         tomatoButton = new JButton();
-
         try {
             Image tomatoImg = ImageIO.read(getClass().getResource(
                     "Tomato.jpg"));
@@ -73,8 +73,23 @@ public class ShoppingButtonsService implements ActionListener {
 
         } catch (Exception e) {
             System.out.println(e);
-
         }
+
+        //banana pic
+        bananaButton = new JButton();
+        try {
+            Image tomatoImg = ImageIO.read(getClass().getResource(
+                    "banana.jpg"));
+            //Finally figured out how to fix size
+            Image image = tomatoImg.getScaledInstance(100, 100,
+                    Image.SCALE_SMOOTH);
+            bananaButton.setIcon(new ImageIcon(image));
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+
         //buttons display
         addButton = new JButton("+");
         subButton = new JButton("Sub(-)");
@@ -113,6 +128,7 @@ public class ShoppingButtonsService implements ActionListener {
 
         //adds the buttons into the app
         panel.add(tomatoButton);
+        panel.add(bananaButton);
 
         //adds it into panel
         panel.add(subButton);
