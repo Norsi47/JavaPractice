@@ -66,7 +66,10 @@ public class ShoppingButtonsService implements ActionListener {
         try {
             Image tomatoImg = ImageIO.read(getClass().getResource(
                     "Tomato.jpg"));
-            tomatoButton.setIcon(new ImageIcon(tomatoImg));
+            //Finally figured out how to fix size
+            Image image = tomatoImg.getScaledInstance(100, 100,
+                    Image.SCALE_SMOOTH);
+            tomatoButton.setIcon(new ImageIcon(image));
 
         } catch (Exception e) {
             System.out.println(e);
