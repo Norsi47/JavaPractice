@@ -64,8 +64,11 @@ public class ShoppingButtonsService implements ActionListener {
         //picture for tomatoe
         tomatoButton = new JButton();
         try {
-            Image tomatoImg = ImageIO.read(getClass().getResource(
-                    "Tomato.jpg"));
+            //another way to add
+//            Image tomatoImg = ImageIO.read(getClass().getResource(
+//                    "Tomato.jpg"));
+
+            Image tomatoImg = new ImageIcon("OnMyOwnProj/src/ShoppingButtons/ButtonPixelPics_JavaProj/Tomato.jpg").getImage();
             //Finally figured out how to fix size
             Image image = tomatoImg.getScaledInstance(100, 100,
                     Image.SCALE_SMOOTH);
@@ -78,10 +81,13 @@ public class ShoppingButtonsService implements ActionListener {
         //banana pic
         bananaButton = new JButton();
         try {
-            Image tomatoImg = ImageIO.read(getClass().getResource(
-                    "banana.jpg"));
+            //another way to add
+//            Image tomatoImg = ImageIO.read(getClass().getResource(
+//                    "banana.jpg"));
+            Image bananaImg = new ImageIcon("OnMyOwnProj/src/ShoppingButtons/ButtonPixelPics_JavaProj/banana.jpg")
+                    .getImage();
             //Finally figured out how to fix size
-            Image image = tomatoImg.getScaledInstance(100, 100,
+            Image image = bananaImg.getScaledInstance(100, 100,
                     Image.SCALE_SMOOTH);
             bananaButton.setIcon(new ImageIcon(image));
 
@@ -126,7 +132,7 @@ public class ShoppingButtonsService implements ActionListener {
         }
 
 
-        //adds the buttons into the app
+        //adds the pic buttons into the app
         panel.add(tomatoButton);
         panel.add(bananaButton);
 
