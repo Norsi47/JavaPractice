@@ -29,7 +29,7 @@ public class ShoppingButtonsService implements ActionListener {
 
     //for fruit button pics
     JButton[] fruitButtonPics = new JButton[3];
-    JButton tomatoButton, bananaButton;
+    JButton tomatoButton, bananaButton, appleButton;
 
     //for calculations
     double num1 = 0, num2 = 0, result = 0;
@@ -95,6 +95,19 @@ public class ShoppingButtonsService implements ActionListener {
             System.out.println(e);
         }
 
+        //apple pic
+        appleButton = new JButton();
+        try {
+            Image appleImg = new ImageIcon("OnMyOwnProj/src/ShoppingButtons/ButtonPixelPics_JavaProj/apple.png")
+                    .getImage();
+            Image image = appleImg.getScaledInstance(85, 70, Image.SCALE_SMOOTH);
+            appleButton.setIcon(new ImageIcon(image));
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+
+
 
         //buttons display
         addButton = new JButton("+");
@@ -135,6 +148,7 @@ public class ShoppingButtonsService implements ActionListener {
         //adds the pic buttons into the app
         panel.add(tomatoButton);
         panel.add(bananaButton);
+        panel.add(appleButton);
 
         //adds it into panel
         panel.add(subButton);
@@ -206,7 +220,8 @@ public class ShoppingButtonsService implements ActionListener {
 
 
 //can use "fix me", no space to remmind to fix
-//TODO:Create Buttons with pictures of food items
+/*TODO:Create Buttons with pictures of food items
+*  if Users press food button let it say what food it is and the price*/
 //TODO: Make sure all buttons function properly
 /*
  * TODO:save selected files into a txt file
