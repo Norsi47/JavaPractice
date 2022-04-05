@@ -80,6 +80,9 @@ public class ShoppingButtonsService implements ActionListener {
 
         //banana pic
         bananaButton = new JButton();
+        bananaButton.setToolTipText("Banana Button");
+        bananaButton.addActionListener(this);
+
         try {
             //another way to add
 //            Image tomatoImg = ImageIO.read(getClass().getResource(
@@ -97,6 +100,10 @@ public class ShoppingButtonsService implements ActionListener {
 
         //apple pic
         appleButton = new JButton();
+        appleButton.setToolTipText("AppleButton");
+        //this is what will make the apple button work when pressed
+        appleButton.addActionListener(this);
+
         try {
             Image appleImg = new ImageIcon("OnMyOwnProj/src/ShoppingButtons/ButtonPixelPics_JavaProj/apple.png")
                     .getImage();
@@ -188,6 +195,21 @@ public class ShoppingButtonsService implements ActionListener {
                 displayBox.setText(displayBox.getText().concat(String.valueOf(i)));
             }
         }
+
+        /*what will happen if user click foodPic button
+        need to display price
+        */
+        if (e.getSource() == appleButton) {
+           displayBox.setText("Apple Info: ");
+        }
+
+        //for banana button
+        if (e.getSource() == bananaButton) {
+            displayBox.setText("Banana Info: ");
+
+        }
+
+
 
         if (e.getSource() == subButton) {
             num1 = Double.parseDouble(displayBox.getText());
