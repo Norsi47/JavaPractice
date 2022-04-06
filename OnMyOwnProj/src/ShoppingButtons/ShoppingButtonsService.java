@@ -63,6 +63,8 @@ public class ShoppingButtonsService implements ActionListener {
 
         //picture for tomatoe
         tomatoButton = new JButton();
+        tomatoButton.setToolTipText("Tomato Button");
+        tomatoButton.addActionListener(this);
         try {
             //another way to add
 //            Image tomatoImg = ImageIO.read(getClass().getResource(
@@ -207,6 +209,10 @@ public class ShoppingButtonsService implements ActionListener {
         if (e.getSource() == bananaButton) {
             displayBox.setText("Banana Info: ");
 
+        }
+
+        if (e.getSource() == tomatoButton) {
+            displayBox.setText("Tomato Info: ");
         }
 
 
