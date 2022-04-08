@@ -23,7 +23,7 @@ public class ShoppingButtonsService implements ActionListener {
      */
     JButton[] numberButtons = new JButton[10];
 
-    JButton[] functionButtons = new JButton[5];
+    JButton[] functionButtons = new JButton[10];
     JButton addButton, subButton, delButton, multiButton,
             clrButton, equalButton;
 
@@ -132,11 +132,13 @@ public class ShoppingButtonsService implements ActionListener {
         functionButtons[2] = delButton;
         functionButtons[3] = addButton;
         functionButtons[4] = subButton;
+        functionButtons[5] = equalButton;
 
         //to make buttons show outside panel and inside jframe
         clrButton.setBounds(250, 430, 100, 50);
         delButton.setBounds(150, 430, 100, 50);
 
+        //easier to get all num buttons working
         for (int i = 0; i < 10; i++) {
             numberButtons[i] = new JButton(String.valueOf(i));
             numberButtons[i].setFont(myFont);
@@ -144,8 +146,8 @@ public class ShoppingButtonsService implements ActionListener {
             numberButtons[i].setFocusable(false);
         }
 
-        //for function buttons to show
-        for (int i = 0; i < 5; i++) {
+        //for function buttons to work
+        for (int i = 0; i < 6; i++) {
             //makes all function buttons in array work
             functionButtons[i].addActionListener(this);
             //sets font for all keys
@@ -215,6 +217,18 @@ public class ShoppingButtonsService implements ActionListener {
             displayBox.setText("Tomato Info: ");
         }
 
+        if (e.getSource() == addButton) {
+            num1 = Double.parseDouble(displayBox.getText());
+            symbolsOperator = '+';
+            displayBox.setText("");
+
+        }
+
+        if (e.getSource() == multiButton) {
+            num1 = Double.parseDouble(displayBox.getText());
+            symbolsOperator = '*';
+            displayBox.setText("");
+        }
 
 
         if (e.getSource() == subButton) {
@@ -236,6 +250,27 @@ public class ShoppingButtonsService implements ActionListener {
             for (int i = 0; i < string.length() - 1; i++) {
                 displayBox.setText(displayBox.getText() + string.charAt(i));
             }
+        }
+
+        //using equal to button
+        if (e.getSource() == equalButton) {
+            num2 = Double.parseDouble(displayBox.getText());
+            switch (symbolsOperator) {
+                case '+' :
+                    result = num1 + num2;
+                    break;
+                case '-' :
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+
+            }
+            //display on display box
+            displayBox.setText(String.valueOf(result));
+            num1 = result;
+
         }
 
 
